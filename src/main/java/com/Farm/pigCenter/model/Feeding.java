@@ -12,7 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "Porcine")
+@Table(name = "Feeding")
 public class Feeding {
     @Id
     @Column(name = "id")
@@ -24,6 +24,6 @@ public class Feeding {
 
     @Column(name = "dose")
     private float dose;
-    
+
 
 }
