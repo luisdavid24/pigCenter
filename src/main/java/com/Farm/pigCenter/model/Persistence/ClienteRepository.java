@@ -1,5 +1,9 @@
 package com.Farm.pigCenter.model.Persistence;
 
-public interface ClienteRepository {
-    
+
+import com.Farm.pigCenter.model.Client;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClienteRepository extends JpaRepository<Client, Integer> {
+
 }
