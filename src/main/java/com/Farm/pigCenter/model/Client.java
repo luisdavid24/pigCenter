@@ -35,4 +35,7 @@ public class Client implements Serializable {
         private String phone;
 
 
+        public String getAddress() {
+                return adress;
+        }
 }
