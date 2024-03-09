@@ -2,6 +2,8 @@ package com.Farm.pigCenter.controller;
 
 import com.Farm.pigCenter.model.Client;
 import com.Farm.pigCenter.model.Persistence.ClienteRepository;
+import com.Farm.pigCenter.model.Persistence.PorcinoRepository;
+import com.Farm.pigCenter.model.Porcine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,38 +15,37 @@ import java.util.List;
 public class PorcinoController {
 
     @Autowired
-    private ClienteRepository clientRepository;
+    private PorcinoRepository porcinoRepository;
 
     @GetMapping
-    public List<Client> getAllClients() {
-        return clientRepository.findAll();
+    public List<Porcine> getAllPorcines() {
+        return porcinoRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Client getClientById(@PathVariable int id) {
-        return clientRepository.findById(id).orElse(null);
+    public Porcine getPorcineById(@PathVariable int id) {
+        return porcinoRepository.findById(id).orElse(null);
     }
 
     @PostMapping
-    public Client createClient(@RequestBody Client client) {
-        return clientRepository.save(client);
+    public Porcine createPorcine(@RequestBody Porcine client) {
+        return porcinoRepository.save(client);
     }
 
     @PutMapping("/{id}")
-    public Client updateClient(@PathVariable int id, @RequestBody Client clientDetails) {
-        Client client = clientRepository.findById(id).orElse(null);
-        if (client != null) {
-            client.setName(clientDetails.getName());
-            client.setLastName(clientDetails.getLastName());
-            client.setAdress(clientDetails.getAddress());
-            client.setPhone(clientDetails.getPhone());
-            return clientRepository.save(client);
+    public Porcine updatePorcine(@PathVariable int id, @RequestBody Porcine clientDetails) {
+        Porcine porcine = porcinoRepository.findById(id).orElse(null);
+        if (porcine != null) {
+            porcine.setAge(clientDetails.getAge());
+            porcine.setRace(clientDetails.getRace());
+            porcine.setWeight(clientDetails.getWeight());
+            return porcinoRepository.save(porcine);
         }
         return null;
     }
 
     @DeleteMapping("/{id}")
-    public void deleteClient(@PathVariable int id) {
-        clientRepository.deleteById(id);
+    public void deletePorcine(@PathVariable int id) {
+        porcinoRepository.deleteById(id);
     }
 }
