@@ -1,4 +1,8 @@
 package com.Farm.pigCenter.model.Persistence;
 
-public interface FeedingRepository {
+import com.Farm.pigCenter.model.Feeding;
+import com.Farm.pigCenter.model.Porcine;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FeedingRepository   extends JpaRepository<Feeding, Integer> {
 }
