@@ -38,7 +38,7 @@ public class FeedingController {
         if (feeding != null) {
             feeding.setDescription(feedingDetails.getDescription());
             feeding.setDose(feedingDetails.getDose());
-            feeding.setIdPorcino(feedingDetails.getIdPorcino());
+            feeding.setPorcine(feedingDetails.getPorcine());
             return feedingRepository.save(feeding);
         }
         return null;

@@ -25,9 +25,16 @@ public class Feeding {
     @Column(name = "dose")
     private float dose;
 
-    @Column(name = "idPorcino")
-    private int idPorcino;
 
+    @ManyToOne
+    @JoinColumn(name = "porcino_id", nullable = true)
+    private Porcine porcine;
 
+    public Porcine getPorcine() {
+        return porcine;
+    }
 
+    public void setPorcine(Porcine porcine) {
+        this.porcine = porcine;
+    }
 }
