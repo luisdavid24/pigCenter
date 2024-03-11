@@ -30,6 +30,14 @@ public class Porcine implements Serializable {
     @Column(name = "weight")
     private float weight;
 
+    @Column(name = "idClient")
+    private int idlCliente;
 
-
+    public Porcine(int id, String race, int age, float weight) {
+        this.id = id;
+        this.race = race;
+        this.age = age;
+        this.weight = weight;
+        this.idlCliente = -1;
+    }
 }
