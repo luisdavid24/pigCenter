@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -34,6 +35,9 @@ public class Client implements Serializable {
         @Column(name = "phone")
         private String phone;
 
+
+        @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+        private List<Porcine> porcines;
 
         public String getAddress() {
                 return adress;

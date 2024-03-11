@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -30,14 +31,15 @@ public class Porcine implements Serializable {
     @Column(name = "weight")
     private float weight;
 
-    @Column(name = "idClient")
-    private int idlCliente;
+    @ManyToOne
+    @JoinColumn(name = "client_id", nullable = true)
+    private Client client;
 
     public Porcine(int id, String race, int age, float weight) {
         this.id = id;
         this.race = race;
         this.age = age;
         this.weight = weight;
-        this.idlCliente = -1;
     }
+
 }
