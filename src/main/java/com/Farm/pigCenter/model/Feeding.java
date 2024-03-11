@@ -25,5 +25,9 @@ public class Feeding {
     @Column(name = "dose")
     private float dose;
 
+    @Column(name = "idPorcino")
+    private int idPorcino;
+
+
 
 }
