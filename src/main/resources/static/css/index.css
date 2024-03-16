@@ -1,0 +1,14 @@
+.containerIndex{
+    margin: 0 auto; 
+    width: 80%; 
+}
+.nav{
+    --bs-nav-link-color: white;
+}
+
+.nav-pills {
+    
+    --bs-nav-pills-link-active-bg: #2e8b57;
+    
+    
+}
