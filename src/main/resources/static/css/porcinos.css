@@ -27,3 +27,14 @@ thead{
     width: 90%; 
     margin-bottom: 15px;
 }
+.containerGeneration{
+    margin: 0 auto; 
+    width: 90%; 
+    margin-bottom: 25px;
+}
+.containerGeneration button{
+    margin-top: 5px;
+}
+.modalContainer{
+    color: black;
+}
