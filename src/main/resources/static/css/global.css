@@ -1,0 +1,29 @@
+body{
+    background-color: #2e8b57;
+    color: white;
+}
+/* Reset de margen y padding para el body */
+body {
+    margin: 0;
+    padding: 0;
+}
+.navPig{
+    background-color: #96d8b4;
+    color: white;
+}
+
+footer {
+    background-color: #96d8b4; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    text-align: center; /* Alineación del texto */
+    padding: 20px; /* Espaciado interior */
+    position: fixed; /* Fija el footer en la parte inferior */
+    width: 100%; /* Ancho completo */
+    bottom: 0; /* Sitúa el footer al fondo */
+}
+
+footer p {
+    margin: 0; 
+}
+
+

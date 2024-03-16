@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/feeding")
+    @RequestMapping("/feeding")
 public class FeedingController {
 
     @Autowired
