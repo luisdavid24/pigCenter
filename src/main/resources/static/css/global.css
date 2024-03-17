@@ -12,6 +12,21 @@ body {
     color: white;
 }
 
+.containerIndex{
+    margin: 0 auto; 
+    width: 80%; 
+}
+.nav{
+    --bs-nav-link-color: white;
+}
+
+.nav-pills {
+    
+    --bs-nav-pills-link-active-bg: #2e8b57;
+    --bs-link-hover-color: #2e8b57;
+    
+}
+
 footer {
     background-color: #96d8b4; /* Color de fondo */
     color: #fff; /* Color del texto */
