@@ -7,43 +7,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="css/porcinos.css">
-    <title>Document</title>
+    <title>Granja S.A - porcinos</title>
     <script src="./js/porcinos.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light  navPig">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-light  navPig">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-center py-2" id="navbarTogglerDemo01">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+        <li class="nav-item"><a href="clientes.html" class="nav-link">Clientes</a></li>
+        <li class="nav-item"><a href="porcinos.html" class="nav-link active" aria-current="page">Porcinos</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Alimentación</a></li>
+      </ul>
+    </div>
+  </nav>
     <main>
-        <div class="containerPorcinosInformacion">
-          <h2><strong>Bienvenido a nuestra página de Información de Porcinos</strong></h2>
+        <div class="containerIndex">
+          <p class="display-5">Bienvenido a nuestra página de Información de Porcinos</p>  
           <div>
+            <p class="lead lh-base">
             Esta página proporciona una plataforma integral para administrar datos sobre los porcinos. Desde identificarlos hasta rastrear detalles importantes como raza, edad, peso, alimentación y el cliente asociado, aquí encontrarás todo lo que necesitas saber sobre nuestros amigos de granja.
+            </p>
           </div>
           
-
-        </div>
-        <div class="containerGeneration">
-          Si deseas generar un nuevo Porcino que esperar, da click en el boton generar.<br>
+          <p class="lead lh-base"> Si deseas agregar uno, da click en el boton generar.</p><br>
         <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
           Generar
         </button>
+
         <div class="modal fade modalContainer" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -79,7 +73,6 @@
               </div>
             </div>
           </div>
-        </div>
         </div>
 
        
@@ -125,25 +118,23 @@
                 </tbody>
               </table>
         </div>
-        <div class="containerPorcinosInformacion">
-          <h3>
-            Información Disponible:
-          </h3>
+        <br>
+        <p class="display-6">Información disponible</p>  
           <div>
+            <p class="lead lh-base">
             Identificación del Porcino: Cada porcino tiene su propia identificación única, lo que facilita el seguimiento y la gestión individualizada.<br>
 
-Raza: Conocer la raza del porcino es esencial para comprender sus características y necesidades específicas.<br>
+            Raza: Conocer la raza del porcino es esencial para comprender sus características y necesidades específicas.<br>
 
-Edad y Peso: La edad y el peso son factores críticos en la salud y el desarrollo de los porcinos. Aquí podrás mantener un registro preciso de estos datos.<br>
+            Edad y Peso: La edad y el peso son factores críticos en la salud y el desarrollo de los porcinos. Aquí podrás mantener un registro preciso de estos datos.<br>
 
-Alimentación: La dieta adecuada es fundamental para el bienestar y el crecimiento saludable de los porcinos. Mantenemos un registro detallado de su alimentación para garantizar que reciban los nutrientes adecuados.<br>
+            Alimentación: La dieta adecuada es fundamental para el bienestar y el crecimiento saludable de los porcinos. Mantenemos un registro detallado de su alimentación para garantizar que reciban los nutrientes adecuados.<br>
 
-Cliente Asociado: Cada porcino puede estar asociado con un cliente específico. Esto es importante para la gestión de inventario y para fines de facturación.<br>
-
+            Cliente Asociado: Cada porcino puede estar asociado con un cliente específico. Esto es importante para la gestión de inventario y para fines de facturación.<br>
+            </p>
           </div>
 
-        </div>
-
+    </div>
     </main>
     <footer>
         <p>&copy; 2024 Tu Empresa | Todos los derechos reservados</p>
