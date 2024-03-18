@@ -10,23 +10,23 @@ async function cargarUsuarios() {
             }
            
         });
-        const usuarios = await request.json();
-        console.log(usuarios);
+        const data = await request.json();
+        console.log(data);
+
+
+        let listadoHtml = '';
+        for (let porcino of data) {
+            console.log(porcino);
+            let porcinoRow='<tr><td>'+porcino.id+'</td><td>' + porcino.race + '</td><td>'+porcino.age + '</td><td>' +porcino.weight + '</td><td>'
+                    + porcino.client+'</td><td>Pendiente</td></tr>';
+                    listadoHtml+=porcinoRow;
+        }
+
+       document.querySelector('#tablePorcino tbody').outerHTML = listadoHtml;
     } catch (error) {
         console.error('Error:', error);
     }
 }
 
 
-        // let listadoHtml = '';
-        // for (let usuario of usuarios) {
-        //   let botonEliminar = '<a href="#" onclick="eliminarUsuario(' + usuario.id + ')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
-        
-        //   let telefonoTexto = usuario.telefono == null ? '-' : usuario.telefono;
-        //   let usuarioHtml = '<tr><td>'+usuario.id+'</td><td>' + usuario.nombre + ' ' + usuario.apellido + '</td><td>'
-        //                   + usuario.email+'</td><td>'+telefonoTexto
-        //                   + '</td><td>' + botonEliminar + '</td></tr>';
-        //   listadoHtml += usuarioHtml;
-        // }
-        
-        // document.querySelector('#usuarios tbody').outerHTML = listadoHtml;
+     
