@@ -126,13 +126,64 @@
               </table>
         </div>
       </div>
+
+   
+      <div class="modal fade modalContainer" id="editarPorcino" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar tu propio porcino</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="opcionesPorcino">Selecciona una opción de raza:</label>
+                  <select id="opcionesPorcinoEdit" name="opcionesPorcino">
+                      <option value="york">york</option>
+                      <option value="hamp">hamp</option>
+                      <option value="duroc">duroc</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1"> Cambia la Edad del porcino:</label>
+                  <input type="number" class="form-control" id="textEdadPorcinoEdit" aria-describedby="edadHelp">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Cambia el peso del porcino:</label>
+                  <input type="text" class="form-control" id="textPesoPorcinoEdit" aria-describedby="pesoHelp">
+                </div>
+                <div class="form-group">
+                  <label for="opcionesPorcino">Selecciona una cliente:</label>
+                  <select id="opcionesPorcinoEdit" name="opcionesPorcino">
+                      <option value="cliente1">cliente1</option>
+                      <option value="cliente2">cliente2</option>
+                      <option value="cliente3">cliente3</option>
+                  </select>
+                </div>
+                
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Cerrar</button>
+              <button type="button" class="btn btn-primary" onclick="crearPorcino()">Guardar cambios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
       <div class="containerButtonReporte">
-        <button type="button" class="btn btn-dark" >Generar Reporte</button>
+        <button type="button" class="btn btn-dark" id="btnGenerarReporteportes" onclick="generarReporte()">Generar Reporte</button>
 
 
         <div class="containerReport" id="containerReport">
           <h2>Reporte</h2>
-          <p>Reporte de los porcinos</p>
+          <p>Reporte de los porcinos, esta es la cantidad de porcinos que hay divido segun su raza</p>
           <div>
             <p></p>
             
@@ -160,9 +211,14 @@
             </table>
           </div>
           <div class="containerCanvasPorcino">
+            <h3>Diagrama de torta de Porcino divido por raza</h3>
             
             <canvas id="torta" width="100" height="100"></canvas>
 
+          </div>
+          <div class="containerCanvasPorcino">
+            <h3>Diagrama de barras de Porcino divido por edad</h3>
+            <canvas id="barrasPorcino" width="400" height="400"></canvas>
           </div>
           
 

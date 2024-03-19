@@ -1,11 +1,12 @@
-cargarUsuarios();
+cargarPorcinos();
 document.addEventListener("DOMContentLoaded", function() {
     generarReportePorcino();
 
 });
+let data;
 
 
-async function cargarUsuarios() {
+async function cargarPorcinos() {
     try {
         const request = await fetch('http://localhost:8080/porcino', {
             method: 'GET',
@@ -15,18 +16,21 @@ async function cargarUsuarios() {
             }
            
         });
-        const data = await request.json();
-        //console.log(data);
-
+        data = await request.json();
+        
 
         let listadoHtml = '';
         for (let porcino of data) {
+            let botonEliminar = '<a class="btn btn-danger btn-circle btn-sm" onclick="eliminarPorcino(' + porcino.id + ')" >Eliminar<i class="fas fa-trash"></i></a>';
+            let botonEditar = '<a class="btn btn-primary" type="button" data-toggle="modal" data-target="#editarPorcino" onclick=" editar('+ porcino.id +')" >Editar<i class="fas fa-trash"></i></a>';
+
             let porcinoRow='<tr><td>'+porcino.id+'</td><td>' + porcino.race + '</td><td>'+porcino.age + '</td><td>' +porcino.weight + '</td><td>'
-                    + porcino.client+'</td><td>Pendiente</td></tr>';
+                    + porcino.client+'</td><td>'+botonEliminar+" "+botonEditar+'</td></tr>';
                     listadoHtml+=porcinoRow;
         }
 
        document.querySelector('#tablePorcino tbody').outerHTML = listadoHtml;
+       generarReportePorcino();
     } catch (error) {
         console.error('Error:', error);
     }
@@ -34,6 +38,42 @@ async function cargarUsuarios() {
 
     
 
+
+async function editar(id) {
+    
+    let porcino=null;
+    for (let elemento of data) {
+        if(elemento.id==id){
+            porcino=elemento;
+        }
+    }
+    console.log(porcino);
+    let edadEdit=document.querySelector('#textEdadPorcinoEdit').outerHTML = porcino.age;
+    edadEdit.value=porcino.age;
+   
+
+}
+
+async function eliminarPorcino(id) {
+
+    try {
+        const request = await fetch('http://localhost:8080/porcino/'+id, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+           
+        });
+        cargarPorcinos();
+        
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
+
+}
 
 async function crearPorcino() {
     try {
@@ -60,7 +100,7 @@ async function crearPorcino() {
             boton.click();
             
 
-            cargarUsuarios();
+            cargarPorcinos();
         } else {
             throw new Error('Error al crear el porcino');
         }
@@ -87,6 +127,8 @@ async function generarReportePorcino() {
         let cantidadYork=0;
         let cantidadHamp=0;
         let cantidadDuroc=0;
+        let edades=[0,1,2,3];
+        let cantidad=[];
 
         for (let porcino of data) {
             if(porcino.race=="york"){
@@ -98,7 +140,23 @@ async function generarReportePorcino() {
            if(porcino.race=="duroc"){
             cantidadDuroc++;
            }
+           if(!edades.includes(porcino.age)){
+             edades.push(porcino.age);
+           }
         }
+
+        for (let edad of edades) {
+            let elemento=0;
+            for (let porcino of data) {
+                if(porcino.age==edad){
+                    elemento++;
+                }
+
+            }
+            cantidad.push(elemento);
+
+        }
+
         document.querySelector('#yorkTd').outerHTML ='<td>'+cantidadYork+'</td>';
         document.querySelector('#hampTd').outerHTML ='<td>'+cantidadHamp+'</td>';
         document.querySelector('#durocTd').outerHTML ='<td>'+cantidadDuroc+'</td>';
@@ -107,8 +165,7 @@ async function generarReportePorcino() {
         dataVector[0]=cantidadYork;
         dataVector[1]=cantidadHamp;
         dataVector[2]=cantidadDuroc;
-
-
+        
         var ctx = document.getElementById('torta').getContext('2d');
         var myPieChart = new Chart(ctx, {
         type: 'pie',
@@ -131,13 +188,67 @@ async function generarReportePorcino() {
         }]
         },
         options: {
-        // Aquí puedes personalizar opciones adicionales, como la leyenda, el título, etc.
+            legend: {
+                labels: {
+                    fontColor: 'red' // Cambia el color de la letra en la leyenda
+                }
+            }
+            
         }
         });
+
+
+
+        var datos = {
+            labels: edades,
+            datasets: [{
+                label: 'Edad',
+                backgroundColor: 'rgba(180, 144, 202, 1)',
+                borderColor: 'rgba(0, 0, 255, 1)',
+                borderWidth: 1,
+                data: cantidad
+            }]
+        };
+        var opciones = {
+            
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        fontColor: 'red' // Cambia el color de las etiquetas en el eje y
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: 'blue' // Cambia el color de las etiquetas en el eje x
+                    }
+                }]
+            }
+        };
+        
+       
+        var ctx = document.getElementById('barrasPorcino').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: datos,
+            options: opciones
+        });
+
         
     } catch (error) {
         console.error('Error:', error);
     }
 }
+async  function generarReporte(){
+   
+        var contenido = document.getElementById('containerReport');
+        if (contenido.style.display === 'none') {
+            contenido.style.display = 'block'; // Si está oculto, mostrarlo
+        } else {
+            contenido.style.display = 'none'; // Si está mostrándose, ocultarlo
+        }
 
+
+
+}
 

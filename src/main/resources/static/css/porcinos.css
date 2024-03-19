@@ -43,10 +43,19 @@ thead{
     width: 90%; 
     padding-top: 10px;
     padding-bottom: 10px;
+    
 }
 .TableReport{
     width: 30%;
 }
 .containerCanvasPorcino{
     max-width: 500px;
+    padding-bottom: 20px;
+}
+
+.containerReport{
+    display: none;
+}
+canvas{
+    color:white;
 }
