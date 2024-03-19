@@ -38,3 +38,15 @@ thead{
 .modalContainer{
     color: black;
 }
+.containerButtonReporte{
+    margin: 0 auto; 
+    width: 90%; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.TableReport{
+    width: 30%;
+}
+.containerCanvasPorcino{
+    max-width: 500px;
+}
