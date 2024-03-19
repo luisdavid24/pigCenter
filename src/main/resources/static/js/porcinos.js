@@ -1,9 +1,8 @@
 cargarPorcinos();
 document.addEventListener("DOMContentLoaded", function() {
     generarReportePorcino();
-
+    
 });
-let data;
 
 
 async function cargarPorcinos() {
@@ -16,7 +15,7 @@ async function cargarPorcinos() {
             }
            
         });
-        data = await request.json();
+        let data = await request.json();
         
 
         let listadoHtml = '';
@@ -37,21 +36,88 @@ async function cargarPorcinos() {
 }
 
     
-
-
-async function editar(id) {
-    
-    let porcino=null;
-    for (let elemento of data) {
-        if(elemento.id==id){
-            porcino=elemento;
+let porcinoEditGlobal=null;
+let vectorCliente=null;
+async function editar(id){
+    try {
+        const request = await fetch('http://localhost:8080/porcino', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+               
+            });
+        let data = await request.json();
+        for (let elemento of data) {
+            if(elemento.id==id){
+                porcino=elemento;
+            }
         }
-    }
-    console.log(porcino);
-    let edadEdit=document.querySelector('#textEdadPorcinoEdit').outerHTML = porcino.age;
-    edadEdit.value=porcino.age;
-   
+        porcinoEditGlobal=porcino;
 
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
+    try {
+        const request = await fetch('http://localhost:8080/client', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+               
+            });
+        let dataClient = await request.json();
+        vectorCliente=dataClient;
+        let listadoHtml = '';
+        console.log(dataClient);
+
+        let selectElement = document.getElementById('opcionesPorcinoEditClient');
+
+        selectElement.innerHTML = '';
+
+        for (let client of dataClient) {
+            let optionElement = document.createElement('option');
+            optionElement.value = client.id; // Ajusta esto según la propiedad que contenga el valor que deseas asignar
+            optionElement.textContent = client.name; // Ajusta esto según la propiedad que contenga el nombre del cliente
+            selectElement.appendChild(optionElement);
+        }
+        
+       
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+async function GuardarEditarPorcino() {
+    let age = document.getElementById('textEdadPorcinoEdit').value;
+    let race = document.getElementById('opcionesPorcinoEdit').value;
+    let weight = document.getElementById('textPesoPorcinoEdit').value;
+    let idCliente=document.getElementById('opcionesPorcinoEditClient').value;
+    console.log(porcinoEditGlobal);
+    console.log("id: "+idCliente);
+    if(age){
+        porcinoEditGlobal.age=age;
+    }
+    if(race){
+        porcinoEditGlobal.race=race;
+    }
+    if(weight){
+        porcinoEditGlobal.weight=weight;
+    }
+    if(idCliente){
+
+        for (let client of vectorCliente) {
+            if(idCliente==client){
+                porcinoEditGlobal.client=client;
+                break;
+            }
+        }
+        
+    }
+    console.log(porcinoEditGlobal);
+    
 }
 
 async function eliminarPorcino(id) {
