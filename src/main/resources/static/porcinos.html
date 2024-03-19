@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="css/porcinos.css">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/porcinos.js"></script>
 </head>
 <body>
@@ -74,7 +75,7 @@
                 </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Cerrar</button>
                 <button type="button" class="btn btn-primary" onclick="crearPorcino()">Guardar cambios</button>
               </div>
             </div>
@@ -84,7 +85,6 @@
 
        
         <div class="container">
-            
             <table class="table tablePig" id="tablePorcino">
                 <thead>
                   <tr>
@@ -125,6 +125,56 @@
                 </tbody>
               </table>
         </div>
+      </div>
+      <div class="containerButtonReporte">
+        <button type="button" class="btn btn-dark" >Generar Reporte</button>
+
+
+        <div class="containerReport" id="containerReport">
+          <h2>Reporte</h2>
+          <p>Reporte de los porcinos</p>
+          <div>
+            <p></p>
+            
+            <table class="table tablePig TableReport" id="tablePorcinoReport">
+              <thead>
+                <tr>
+                  <th scope="col">Race</th>
+                  <th scope="col">Cantidad</th>
+                </tr>
+              </thead>
+            <tbody>
+              <tr>
+                <td>york:</td>
+                <td id="yorkTd">1</td>
+              </tr>
+              <tr>
+                <td>hamp:</td>
+                <td id="hampTd">2</td>
+              </tr>
+              <tr>
+                <td>duroc:</td>
+                <td id="durocTd">3</td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+          <div class="containerCanvasPorcino">
+            
+            <canvas id="torta" width="100" height="100"></canvas>
+
+          </div>
+          
+
+
+        </div>
+      </div>
+      
+      
+      
+      
+      
+
         <div class="containerPorcinosInformacion">
           <h3>
             Información Disponible:
