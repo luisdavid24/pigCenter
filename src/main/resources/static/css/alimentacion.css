@@ -1,0 +1,24 @@
+.table_clients{
+
+    --bs-body-bg: #F5F5F5;
+}
+
+.table{
+    --bs-table-bg:#5bab7e;
+    padding: 20px 20px;
+    align-items: center;
+}
+
+.modalContainer{
+    color: black;
+}
+.containerReportClient{
+    margin: 0 auto; 
+    width: 80%; 
+}
+.containerCanvasCliente{
+    max-width: 450px;
+}
+thead{
+    --bs-table-bg:#49986b; 
+}
