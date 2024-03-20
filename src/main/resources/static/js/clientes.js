@@ -1,6 +1,6 @@
 cargarClientes();
 let clienteEditGlobal=null;
-let vectorCliente=null;
+let vectorPorcino=null;
 
 async function cargarClientes() {
     try {
@@ -21,7 +21,7 @@ async function cargarClientes() {
             
            
             let clienteRow='<tr><td>'+cliente.id+'</td><td>' + cliente.name + '</td><td>'+cliente.lastName + '</td><td>' +cliente.adress + '</td><td>'
-                    + cliente.phone+'</td><td>' + bntEditar+btnEliminar + '</td></tr>';
+                    + cliente.phone+'</td><td>pendiente</td><td>' + bntEditar+btnEliminar + '</td></tr>';
                     listadoHtml+=clienteRow;
             
         }
@@ -110,7 +110,7 @@ async function editarCliente(id){
                
             });
         let data = await request.json();
-        
+        data=quitarAdress(data);
         for (let elemento of data) {
             if(elemento.id==id){
                 clienteEditGlobal=elemento;
@@ -124,5 +124,64 @@ async function editarCliente(id){
         console.error('Error:', error);
     }
 
+
+    try {
+        const request = await fetch('http://localhost:8080/porcino', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+               
+            });
+        let dataClient = await request.json();
+        vectorPorcino=dataClient;
+        let listadoHtml = '';
+      
+
+        let selectElement = document.getElementById('opcionesClienteEditPorcinos');
+
+        selectElement.innerHTML = '';
+
+        for (let porcino of dataClient) {
+            if(porcino.client==null){
+                let optionElement = document.createElement('option');
+                optionElement.value = porcino.id; 
+                optionElement.textContent = porcino.id+" "+porcino.race;
+                selectElement.appendChild(optionElement);
+                
+            }
+        }
+        
+       
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
+    
+}
+
+async function GuardarEditarPorcino() {
+    let name = document.getElementById('textNombreClienteEditar').value;
+    let lastName = document.getElementById('textApellidosClienteEditar').value;
+    let adress = document.getElementById('textDireccionClienteEditar').value;
+    
+    
+    
+    if(lastName){
+        clienteEditGlobal.lastName=lastName;
+    }
+   
+    if(name){
+        clienteEditGlobal.name=name;
+    }
+    
+    if(adress){
+        clienteEditGlobal.adress=adress;
+        
+    }
+    
+    console.log(clienteEditGlobal);
+    
     
 }
