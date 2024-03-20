@@ -6,3 +6,10 @@
 .modalContainer{
     color: black;
 }
+.containerReportClient{
+    margin: 0 auto; 
+    width: 80%; 
+}
+.containerCanvasCliente{
+    max-width: 450px;
+}

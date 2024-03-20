@@ -37,7 +37,7 @@ async function cargarClientes() {
             let btnEliminar = '<a class="btn btn-danger btn-circle btn-sm" onclick="eliminarCliente(' + cliente.id + ')" >Eliminar<i class="fas fa-trash"></i></a>';
             let bntEditar = '<a class="btn btn-primary" type="button" data-toggle="modal" data-target="#clienteModalModificar" onclick=" editarCliente('+ cliente.id +')" >Editar<i class="fas fa-trash"></i></a>';
             
-            let porcinos=""
+            let porcinos="";
             for (let elemento of dataInnerJoin) {
                 
                 if(elemento.client.id==cliente.id){
@@ -176,4 +176,86 @@ async function GuardarEditarPorcino() {
     console.log(clienteEditGlobal);
     
     
+}
+
+
+
+async function generarReportePorcino() {
+
+   
+
+    try {
+        let dataInnerJoin=null;
+        const responseNew = await fetch('http://localhost:8080/porcino/withClient', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+        dataInnerJoin = await responseNew.json();
+        const request = await fetch('http://localhost:8080/client', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+           
+        });
+        const data = await request.json();
+        
+      
+        let namesVector=[];
+        let dataVector=[];
+        for (let clienteElement of data) {
+            let number=0;
+            namesVector.push(clienteElement.name +" "+clienteElement.lastName )
+
+            for (let element of dataInnerJoin) {
+                if(clienteElement.id==element.client.id){
+                     console.log(element);
+                    number++;
+                }
+            }
+            dataVector.push(number);
+            number=0;
+        }
+        console.log(namesVector);
+
+        
+        var ctx = document.getElementById('tortaCliente').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+        labels: namesVector,
+        datasets: [{
+            label: '# of Votes',
+            data: dataVector,
+            backgroundColor: [
+            'rgba(128, 0, 128, 1)',
+            'rgba(127, 255, 212, 1)',
+            'rgba(180, 144, 202, 1)'
+            ],
+            borderColor: [
+            'rgba(0, 0, 255, 1)',
+            'rgba(0, 0, 255, 1)',
+            'rgba(0, 0, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+        },
+        options: {
+            legend: {
+                labels: {
+                    fontColor: 'red' // Cambia el color de la letra en la leyenda
+                }
+            }
+            
+        }
+        });
+
+        
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
