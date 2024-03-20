@@ -39,6 +39,7 @@ public class PorcinoController {
             porcine.setAge(clientDetails.getAge());
             porcine.setRace(clientDetails.getRace());
             porcine.setWeight(clientDetails.getWeight());
+            porcine.setClient(clientDetails.getClient());
             return porcinoRepository.save(porcine);
         }
         return null;

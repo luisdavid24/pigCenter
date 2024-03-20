@@ -16,15 +16,17 @@ async function cargarPorcinos() {
            
         });
         let data = await request.json();
-        
-
+       
         let listadoHtml = '';
         for (let porcino of data) {
             let botonEliminar = '<a class="btn btn-danger btn-circle btn-sm" onclick="eliminarPorcino(' + porcino.id + ')" >Eliminar<i class="fas fa-trash"></i></a>';
             let botonEditar = '<a class="btn btn-primary" type="button" data-toggle="modal" data-target="#editarPorcino" onclick=" editar('+ porcino.id +')" >Editar<i class="fas fa-trash"></i></a>';
-
+            let cliente="No tiene";
+            if(porcino.client!=null){
+                cliente=porcino.client.name+"<br>"+porcino.client.lastName;
+            }
             let porcinoRow='<tr><td>'+porcino.id+'</td><td>' + porcino.race + '</td><td>'+porcino.age + '</td><td>' +porcino.weight + '</td><td>'
-                    + porcino.client+'</td><td>'+botonEliminar+" "+botonEditar+'</td></tr>';
+                    + cliente+'</td><td>'+botonEliminar+" "+botonEditar+'</td></tr>';
                     listadoHtml+=porcinoRow;
         }
 
@@ -72,7 +74,7 @@ async function editar(id){
         let dataClient = await request.json();
         vectorCliente=dataClient;
         let listadoHtml = '';
-        console.log(dataClient);
+      
 
         let selectElement = document.getElementById('opcionesPorcinoEditClient');
 
@@ -95,8 +97,7 @@ async function GuardarEditarPorcino() {
     let race = document.getElementById('opcionesPorcinoEdit').value;
     let weight = document.getElementById('textPesoPorcinoEdit').value;
     let idCliente=document.getElementById('opcionesPorcinoEditClient').value;
-    console.log(porcinoEditGlobal);
-    console.log("id: "+idCliente);
+   
     if(age){
         porcinoEditGlobal.age=age;
     }
@@ -107,18 +108,30 @@ async function GuardarEditarPorcino() {
         porcinoEditGlobal.weight=weight;
     }
     if(idCliente){
-
         for (let client of vectorCliente) {
-            if(idCliente==client){
+            if(idCliente==client.id){
+                
+                delete client.address;
                 porcinoEditGlobal.client=client;
                 break;
             }
         }
         
     }
-    console.log(porcinoEditGlobal);
+    
+    const request = await fetch('http://localhost:8080/porcino/'+porcinoEditGlobal.id, {
+        method: 'PUT', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(porcinoEditGlobal)
+    });
+    
     
 }
+
+
 
 async function eliminarPorcino(id) {
 
@@ -309,9 +322,9 @@ async  function generarReporte(){
    
         var contenido = document.getElementById('containerReport');
         if (contenido.style.display === 'none') {
-            contenido.style.display = 'block'; // Si está oculto, mostrarlo
+            contenido.style.display = 'block'; 
         } else {
-            contenido.style.display = 'none'; // Si está mostrándose, ocultarlo
+            contenido.style.display = 'none'; 
         }
 
 
