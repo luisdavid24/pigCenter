@@ -11,13 +11,12 @@ async function cargarClientes() {
            
         });
         let data = await request.json();
-        console.log(data);
         data=quitarAdrres(data);
-        console.log(data);
         let listadoHtml = '';
         for (let cliente of data) {
+            let btnEliminar = '<a class="btn btn-danger btn-circle btn-sm" onclick="eliminarCliente(' + cliente.id + ')" >Eliminar<i class="fas fa-trash"></i></a>';
             let bntEditar=" editar";
-            let btnEliminar=" eliminar";
+           
             let clienteRow='<tr><td>'+cliente.id+'</td><td>' + cliente.name + '</td><td>'+cliente.lastName + '</td><td>' +cliente.address + '</td><td>'
                     + cliente.phone+'</td><td>' + bntEditar+btnEliminar + '</td></tr>';
                     listadoHtml+=clienteRow;
@@ -62,6 +61,10 @@ async function crearCliente(){
             let boton = document.getElementById("btnClose");
             boton.click();
             cargarClientes();
+            document.getElementById('textDireccionCliente').value='';
+            document.getElementById('textNombreCliente').value='';
+            document.getElementById('textApellidosCliente').value='';
+            document.getElementById('textTelefonoCliente').value='';
         } else {
             throw new Error('Error al crear el porcino');
         }
@@ -70,4 +73,24 @@ async function crearCliente(){
     }
     
  
+}
+
+
+async function eliminarCliente(id) {
+
+    try {
+        const request = await fetch('http://localhost:8080/client/'+id, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+           
+        });
+        cargarClientes();
+        
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
