@@ -2,8 +2,6 @@ package com.Farm.pigCenter.controller;
 
 import com.Farm.pigCenter.model.Feeding;
 import com.Farm.pigCenter.model.Persistence.FeedingRepository;
-import com.Farm.pigCenter.model.Persistence.PorcinoRepository;
-import com.Farm.pigCenter.model.Porcine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +9,7 @@ import java.util.List;
 
 
 @RestController
-    @RequestMapping("/feeding")
+@RequestMapping("/feeding")
 public class FeedingController {
 
     @Autowired

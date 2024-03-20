@@ -1,7 +1,5 @@
 package com.Farm.pigCenter.controller;
 
-import com.Farm.pigCenter.model.Client;
-import com.Farm.pigCenter.model.Persistence.ClienteRepository;
 import com.Farm.pigCenter.model.Persistence.PorcinoRepository;
 import com.Farm.pigCenter.model.Porcine;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +46,10 @@ public class PorcinoController {
     @DeleteMapping("/{id}")
     public void deletePorcine(@PathVariable int id) {
         porcinoRepository.deleteById(id);
+    }
+
+    @GetMapping("/withClient")
+    public List<Porcine> getAllPorcinesWithClient() {
+        return porcinoRepository.findAllWithClient();
     }
 }

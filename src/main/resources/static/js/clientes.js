@@ -3,6 +3,24 @@ let clienteEditGlobal=null;
 
 
 async function cargarClientes() {
+    let dataInnerJoin=null;
+    try {
+        const responseNew = await fetch('http://localhost:8080/porcino/withClient', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+        dataInnerJoin = await responseNew.json();
+        console.log(dataInnerJoin);
+        
+        
+    
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+
     try {
         const request = await fetch('http://localhost:8080/client', {
             method: 'GET',
@@ -19,9 +37,16 @@ async function cargarClientes() {
             let btnEliminar = '<a class="btn btn-danger btn-circle btn-sm" onclick="eliminarCliente(' + cliente.id + ')" >Eliminar<i class="fas fa-trash"></i></a>';
             let bntEditar = '<a class="btn btn-primary" type="button" data-toggle="modal" data-target="#clienteModalModificar" onclick=" editarCliente('+ cliente.id +')" >Editar<i class="fas fa-trash"></i></a>';
             
-           
+            let porcinos=""
+            for (let elemento of dataInnerJoin) {
+                
+                if(elemento.client.id==cliente.id){
+                    console.log(elemento);
+                    porcinos+="Id:"+elemento.id+" Raza:"+elemento.race+"<br>";
+                }
+            }
             let clienteRow='<tr><td>'+cliente.id+'</td><td>' + cliente.name + '</td><td>'+cliente.lastName + '</td><td>' +cliente.adress + '</td><td>'
-                    + cliente.phone+'</td><td>pendiente</td><td>' + bntEditar+btnEliminar + '</td></tr>';
+                    + cliente.phone+'</td><td>'+porcinos+'</td><td>' + bntEditar+btnEliminar + '</td></tr>';
                     listadoHtml+=clienteRow;
             
         }
