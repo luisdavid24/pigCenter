@@ -1,6 +1,6 @@
-cargarCliemtes();
+cargarClientes();
 
-async function cargarCliemtes() {
+async function cargarClientes() {
     try {
         const request = await fetch('http://localhost:8080/client', {
             method: 'GET',
@@ -36,4 +36,38 @@ function quitarAdrres(vector){
     }
     return vector;
     
+}
+
+async function crearCliente(){
+    
+    try {
+
+        let nuevoCliente = {};
+        nuevoCliente.address = document.getElementById('textDireccionCliente').value;
+        nuevoCliente.name = document.getElementById('textNombreCliente').value;
+        nuevoCliente.lastName = document.getElementById('textApellidosCliente').value;
+        nuevoCliente.phone=document.getElementById('textTelefonoCliente').value;
+        nuevoCliente.porcines=[];
+        
+        const request = await fetch('http://localhost:8080/client', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(nuevoCliente)
+        });
+
+        if (request.ok) {
+            let boton = document.getElementById("btnClose");
+            boton.click();
+            cargarClientes();
+        } else {
+            throw new Error('Error al crear el porcino');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+    
+ 
 }

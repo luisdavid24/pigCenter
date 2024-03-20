@@ -103,7 +103,7 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="clienteModalCrearLabel">Crea tu propio porcino</h5>
+                  <h5 class="modal-title" id="clienteModalCrearLabel">Crea un cliente</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -111,26 +111,26 @@
                 <div class="modal-body">
                   <form>
                     <div class="form-group">
-                      <label for="opcionesPorcino">Selecciona una opción de raza:</label>
-                      <select id="opcionesPorcino" name="opcionesPorcino">
-                          <option value="york">york</option>
-                          <option value="hamp">hamp</option>
-                          <option value="duroc">duroc</option>
-                      </select>
+                      <label for="InputNombre">Nombre</label>
+                      <input type="text" class="form-control" id="textNombreCliente" aria-describedby="edadHelp">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Edad</label>
-                      <input type="number" class="form-control" id="textEdadPorcino" aria-describedby="edadHelp">
+                      <label for="InputApellidos">Apellidos</label>
+                      <input type="text" class="form-control" id="textApellidosCliente" aria-describedby="edadHelp">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Peso</label>
-                      <input type="text" class="form-control" id="textPesoPorcino" aria-describedby="pesoHelp">
+                      <label for="InputDireccion">Direccion</label>
+                      <input type="text" class="form-control" id="textDireccionCliente" aria-describedby="pesoHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputTelefono">Telefono</label>
+                      <input type="text" class="form-control" id="textTelefonoCliente" aria-describedby="pesoHelp">
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Cerrar</button>
-                  <button type="button" class="btn btn-primary" onclick="crearPorcino()">Guardar cambios</button>
+                  <button type="button" class="btn btn-primary" onclick="crearCliente()">Guardar cambios</button>
                 </div>
               </div>
             </div>
