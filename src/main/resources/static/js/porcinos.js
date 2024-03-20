@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
 });
 
+let porcinoEditGlobal=null;
+let vectorCliente=null;
 
 async function cargarPorcinos() {
     try {
@@ -38,8 +40,7 @@ async function cargarPorcinos() {
 }
 
     
-let porcinoEditGlobal=null;
-let vectorCliente=null;
+
 async function editar(id){
     try {
         const request = await fetch('http://localhost:8080/porcino', {
@@ -82,8 +83,8 @@ async function editar(id){
 
         for (let client of dataClient) {
             let optionElement = document.createElement('option');
-            optionElement.value = client.id; // Ajusta esto según la propiedad que contenga el valor que deseas asignar
-            optionElement.textContent = client.name; // Ajusta esto según la propiedad que contenga el nombre del cliente
+            optionElement.value = client.id; 
+            optionElement.textContent = client.name;
             selectElement.appendChild(optionElement);
         }
         
@@ -127,6 +128,7 @@ async function GuardarEditarPorcino() {
         },
         body: JSON.stringify(porcinoEditGlobal)
     });
+    cargarPorcinos();
     
     
 }
@@ -161,7 +163,7 @@ async function crearPorcino() {
         nuevoPorcino.race = document.getElementById('opcionesPorcino').value;
         nuevoPorcino.age = document.getElementById('textEdadPorcino').value;
         nuevoPorcino.weight = document.getElementById('textPesoPorcino').value;
-       
+        nuevoPorcino.client=null;
         
         const request = await fetch('http://localhost:8080/porcino', {
             method: 'POST',
