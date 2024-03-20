@@ -6,8 +6,11 @@
     <title>Granja S.A</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="css/clientes.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/clientes.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light  navPig">
@@ -29,7 +32,7 @@
         <div class="containerIndex">
             <p class="display-4">Clientes inscritos</p>    
             <div>
-              <table class="table table-hover table-responsive table_clients">
+              <table class="table table-hover table-responsive table_clients" id="tableCliente">
                   <thead>
                     <tr>
                       <th scope="col">Cedula</th>
@@ -39,7 +42,7 @@
                       <th scope="col">Teléfono</th>
                       <th scope="col">
                             <div class="d-flex justify-content-center bg info mt-4">
-                                <button type="button" class="btn btn-primary">Nuevo cliente</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#clienteModalCrear">Nuevo cliente</button>
                             </div>
                       </th>
                     </tr>
@@ -95,11 +98,53 @@
   
           </div>
         </div>
+        <div>
+          <div class="modal fade modalContainer" id="clienteModalCrear" tabindex="-1" role="dialog" aria-labelledby="clienteModalCrearLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="clienteModalCrearLabel">Crea tu propio porcino</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="opcionesPorcino">Selecciona una opción de raza:</label>
+                      <select id="opcionesPorcino" name="opcionesPorcino">
+                          <option value="york">york</option>
+                          <option value="hamp">hamp</option>
+                          <option value="duroc">duroc</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Edad</label>
+                      <input type="number" class="form-control" id="textEdadPorcino" aria-describedby="edadHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Peso</label>
+                      <input type="text" class="form-control" id="textPesoPorcino" aria-describedby="pesoHelp">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Cerrar</button>
+                  <button type="button" class="btn btn-primary" onclick="crearPorcino()">Guardar cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
 
       </main>
       <footer>
         <p>&copy; 2024 Tu Empresa | Todos los derechos reservados</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
  
 </body>
