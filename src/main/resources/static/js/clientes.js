@@ -1,4 +1,6 @@
 cargarClientes();
+let clienteEditGlobal=null;
+let vectorCliente=null;
 
 async function cargarClientes() {
     try {
@@ -11,13 +13,14 @@ async function cargarClientes() {
            
         });
         let data = await request.json();
-        data=quitarAdrres(data);
+        data=quitarAdress(data);
         let listadoHtml = '';
         for (let cliente of data) {
             let btnEliminar = '<a class="btn btn-danger btn-circle btn-sm" onclick="eliminarCliente(' + cliente.id + ')" >Eliminar<i class="fas fa-trash"></i></a>';
-            let bntEditar=" editar";
+            let bntEditar = '<a class="btn btn-primary" type="button" data-toggle="modal" data-target="#clienteModalModificar" onclick=" editarCliente('+ cliente.id +')" >Editar<i class="fas fa-trash"></i></a>';
+            
            
-            let clienteRow='<tr><td>'+cliente.id+'</td><td>' + cliente.name + '</td><td>'+cliente.lastName + '</td><td>' +cliente.address + '</td><td>'
+            let clienteRow='<tr><td>'+cliente.id+'</td><td>' + cliente.name + '</td><td>'+cliente.lastName + '</td><td>' +cliente.adress + '</td><td>'
                     + cliente.phone+'</td><td>' + bntEditar+btnEliminar + '</td></tr>';
                     listadoHtml+=clienteRow;
             
@@ -29,7 +32,7 @@ async function cargarClientes() {
         console.error('Error:', error);
     }
 }
-function quitarAdrres(vector){
+function quitarAdress(vector){
     for (let elemento of vector) {
         delete elemento.address;
     }
@@ -42,7 +45,7 @@ async function crearCliente(){
     try {
 
         let nuevoCliente = {};
-        nuevoCliente.address = document.getElementById('textDireccionCliente').value;
+        nuevoCliente.adress = document.getElementById('textDireccionCliente').value;
         nuevoCliente.name = document.getElementById('textNombreCliente').value;
         nuevoCliente.lastName = document.getElementById('textApellidosCliente').value;
         nuevoCliente.phone=document.getElementById('textTelefonoCliente').value;
@@ -93,4 +96,33 @@ async function eliminarCliente(id) {
     } catch (error) {
         console.error('Error:', error);
     }
+}
+
+
+async function editarCliente(id){
+    try {
+        const request = await fetch('http://localhost:8080/client', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+               
+            });
+        let data = await request.json();
+        
+        for (let elemento of data) {
+            if(elemento.id==id){
+                clienteEditGlobal=elemento;
+                break;
+            }
+        }
+        console.log(clienteEditGlobal);
+        
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
+    
 }

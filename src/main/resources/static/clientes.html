@@ -138,6 +138,48 @@
           </div>
         </div>
 
+
+        <div>
+          <div class="modal fade modalContainer" id="clienteModalModificar" tabindex="-1" role="dialog" aria-labelledby="clienteModalCrearLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="clienteModalModificarLabel">Edita un cliente</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="InputNombre">Editar nombre</label>
+                      <input type="text" class="form-control" id="textNombreClienteEditar" aria-describedby="edadHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputApellidos">Editar apellidos</label>
+                      <input type="text" class="form-control" id="textApellidosClienteEditar" aria-describedby="edadHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputDireccion">Editar direccion</label>
+                      <input type="text" class="form-control" id="textDireccionClienteEditar" aria-describedby="pesoHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputTelefono">Editar telefono</label>
+                      <input type="text" class="form-control" id="textTelefonoClienteEditar" aria-describedby="pesoHelp">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnClose">Cerrar</button>
+                  <button type="button" class="btn btn-primary" onclick="alert('pendiente')">Guardar cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+
       </main>
       <footer>
         <p>&copy; 2024 Tu Empresa | Todos los derechos reservados</p>
