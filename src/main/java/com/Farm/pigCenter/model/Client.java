@@ -36,10 +36,12 @@ public class Client implements Serializable {
         private String phone;
 
 
-        @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-        private List<Porcine> porcines;
+       
 
         public String getAddress() {
                 return adress;
         }
 }
+
+ //@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+        //private List<Porcine> porcines;

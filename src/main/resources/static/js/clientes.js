@@ -1,6 +1,6 @@
 cargarClientes();
 let clienteEditGlobal=null;
-let vectorPorcino=null;
+
 
 async function cargarClientes() {
     try {
@@ -124,40 +124,7 @@ async function editarCliente(id){
         console.error('Error:', error);
     }
 
-
-    try {
-        const request = await fetch('http://localhost:8080/porcino', {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-               
-            });
-        let dataClient = await request.json();
-        vectorPorcino=dataClient;
-        let listadoHtml = '';
-      
-
-        let selectElement = document.getElementById('opcionesClienteEditPorcinos');
-
-        selectElement.innerHTML = '';
-
-        for (let porcino of dataClient) {
-            if(porcino.client==null){
-                let optionElement = document.createElement('option');
-                optionElement.value = porcino.id; 
-                optionElement.textContent = porcino.id+" "+porcino.race;
-                selectElement.appendChild(optionElement);
-                
-            }
-        }
-        
-       
-    } catch (error) {
-        console.error('Error:', error);
-    }
-
+    
     
 }
 
