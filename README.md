@@ -3,7 +3,7 @@ Por
 Luis David y
 Miguel Bañol
 
-Breve descripción del proyecto.
+ ## Breve descripción del proyecto.
 
 
 La Granja S.A, un centro porcino, necesitaba una solución web que implementara el patrón de diseño Modelo-Vista-Controlador (MVC). Este proyecto surgió como respuesta a los desafíos planteados por La Granja S.A.
@@ -13,6 +13,7 @@ La Granja S.A, un centro porcino, necesitaba una solución web que implementara 
 - [Configuración](#configuración)
 - [Uso](#uso)
 - [Tecnologia](#Tecnologia)
+- [Diagrama](#Diagrama)
 - [Contacto](#contacto)
 
 ## Configuración:
@@ -78,9 +79,10 @@ Si tienes alguna pregunta, comentario o sugerencia sobre el proyecto, no dudes e
 
 - Nombre: Luis David
 - Correo Electrónico: luis_lopez82201@elpoli.edu.co
-
+## Diagrama
+Si desea observar el diagrama de clases del proyecto, da click al siguiente link:
+https://drive.google.com/file/d/1c9ihgeT8BkEReCVcwuCx47P5MyLD7zlT/view?usp=drive_link
   
 - Nombre: Miguel bañol
-- Correo Electrónico: miguel_banol82201@elpoli.edu.co
-
+- Correo Electrónico: miguel_banol82201@elpoli.edu.co 
 
