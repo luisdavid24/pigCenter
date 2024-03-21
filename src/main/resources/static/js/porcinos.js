@@ -8,7 +8,7 @@ let data;
 
 async function cargarPorcinos() {
     try {
-        const request = await fetch('http://localhost:8080/porcino', {
+        const request = await fetch('http://localhost:8081/porcino', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -57,7 +57,7 @@ async function editar(id) {
 async function eliminarPorcino(id) {
 
     try {
-        const request = await fetch('http://localhost:8080/porcino/'+id, {
+        const request = await fetch('http://localhost:8081/porcino/'+id, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
@@ -84,7 +84,7 @@ async function crearPorcino() {
         nuevoPorcino.weight = document.getElementById('textPesoPorcino').value;
        
         
-        const request = await fetch('http://localhost:8080/porcino', {
+        const request = await fetch('http://localhost:8081/porcino', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -115,7 +115,7 @@ async function crearPorcino() {
 
 async function generarReportePorcino() {
     try {
-        const request = await fetch('http://localhost:8080/porcino', {
+        const request = await fetch('http://localhost:8081/porcino', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

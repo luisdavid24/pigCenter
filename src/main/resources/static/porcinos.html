@@ -34,10 +34,7 @@
             </p>
           </div>
           
-          <p class="lead lh-base"> Si deseas agregar uno, da click en el boton generar.</p><br>
-        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
-          Generar
-        </button>
+          <p class="lead lh-base"> Si deseas agregar uno, da click en el boton nuevo porcino.</p><br>
 
         <div class="modal fade modalContainer" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -81,12 +78,17 @@
             <table class="table tablePig" id="tablePorcino">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Race</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Weight</th>
-                    <th scope="col">client</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Identificacion</th>
+                    <th scope="col">Raza</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Alimentación</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">
+                        <div class="d-flex justify-content-between mt-4">Acción
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Nuevo porcino</button>
+                        </div>        
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -97,6 +99,13 @@
                     <td>@mdo</td>
                     <td>@mdo</td>
                     <td>@mdo</td>
+                    <td>
+                      <div class="d-flex justify-content-between bg info mt-4">
+                        <svg type ="button"  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+
+                        <svg type ="button"  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+                    </div>
+                    </td>
                 </tr>
                 <tr>
                   <th scope="row">1</th>
@@ -105,6 +114,13 @@
                   <td>@mdo</td>
                   <td>@mdo</td>
                   <td>@mdo</td>
+                  <td>
+                    <div class="d-flex justify-content-between bg info mt-4">
+                      <svg type ="button"  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+
+                      <svg type ="button"  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+                  </div>
+                  </td>
               </tr>
               <tr>
                 <th scope="row">1</th>
@@ -113,16 +129,29 @@
                 <td>@mdo</td>
                 <td>@mdo</td>
                 <td>@mdo</td>
+                <td>
+                  <div class="d-flex justify-content-between bg info mt-4">
+                    <svg type ="button"  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+
+                    <svg type ="button"  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+                </div>
+                </td>
               </tr>
-                  
                 </tbody>
               </table>
         </div>
         <br>
-        <p class="display-6">Información disponible</p>  
-      </div>
 
-   
+        <div class="container">
+          <div class="d-flex justify-content-between mt-4">
+            <p class="display-6">Información disponible</p>
+            <button type="button" class="btn btn-secondary d-inline-flex align-items-center" id="btnGenerarReporteportes" onclick="generarReporte()">Generar Reporte</button>
+          </div>
+        </div>
+
+        <br>
+          
+
       <div class="modal fade modalContainer" id="editarPorcino" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -168,12 +197,8 @@
           </div>
         </div>
       </div>
-      </div>
 
 
-
-      <div class="containerButtonReporte">
-        <button type="button" class="btn btn-dark" id="btnGenerarReporteportes" onclick="generarReporte()">Generar Reporte</button>
 
 
         <div class="containerReport" id="containerReport">
@@ -215,21 +240,9 @@
             <h3>Diagrama de barras de Porcino divido por edad</h3>
             <canvas id="barrasPorcino" width="400" height="400"></canvas>
           </div>
-          
-
-
         </div>
-      </div>
-      
-      
-      
-      
-      
-
+    
         <div class="containerPorcinosInformacion">
-          <h3>
-            Información Disponible:
-          </h3>
           <div>
             <p class="lead lh-base">
             Identificación del Porcino: Cada porcino tiene su propia identificación única, lo que facilita el seguimiento y la gestión individualizada.<br>
@@ -243,11 +256,11 @@
             Cliente Asociado: Cada porcino puede estar asociado con un cliente específico. Esto es importante para la gestión de inventario y para fines de facturación.<br>
             </p>
           </div>
-
-    </div>
+        </div>
+      </div>
     </main>
     <footer>
-        <p>&copy; 2024 Tu Empresa | Todos los derechos reservados</p>
+        <p>&copy; 2024 Granja S.A. | Todos los derechos reservados</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
