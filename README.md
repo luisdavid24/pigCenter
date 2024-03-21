@@ -73,16 +73,18 @@ Las tecnologías utilizadas en el proyecto fueron:
 -Chart.js
 -HTML
 -CSS
+
+## Diagrama
+Si desea observar el diagrama de clases del proyecto, da click al siguiente link:
+https://drive.google.com/file/d/1c9ihgeT8BkEReCVcwuCx47P5MyLD7zlT/view?usp=drive_link
+  
+- Nombre: Miguel bañol
+- Correo Electrónico: miguel_banol82201@elpoli.edu.co
+
 ## Contacto
 
 Si tienes alguna pregunta, comentario o sugerencia sobre el proyecto, no dudes en ponerte con nosotros.
 
 - Nombre: Luis David
 - Correo Electrónico: luis_lopez82201@elpoli.edu.co
-## Diagrama
-Si desea observar el diagrama de clases del proyecto, da click al siguiente link:
-https://drive.google.com/file/d/1c9ihgeT8BkEReCVcwuCx47P5MyLD7zlT/view?usp=drive_link
-  
-- Nombre: Miguel bañol
-- Correo Electrónico: miguel_banol82201@elpoli.edu.co 
 
