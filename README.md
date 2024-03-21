@@ -18,7 +18,7 @@ La Granja S.A, un centro porcino, necesitaba una solución web que implementara 
 ## Configuración:
 
 1. Configuración de la base de datos:
-   - Antes de comenzar, asegúrate de tener PostgreSQL instalado en tu máquina.
+   - Antes de comenzar, asegúrate de tener PostgreSQL instalado en tu máquina.Deberas cambiar la configuracion del archivo 'application.properties'.
    - Debes crear una base de datos con el nombre 'pigCenter'. La creación de las tablas será realizada por Spring Boot durante el proceso de ejecución.
 
 2. Ejecución del script de la base de datos:
