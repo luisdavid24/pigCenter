@@ -77,7 +77,7 @@ async function editar(id){
         let listadoHtml = '';
       
 
-        let selectElement = document.getElementById('opcionesPorcinoEditClient');
+        let selectElement = document.getElementById('opcionesAlimentacionEditar');
 
         selectElement.innerHTML = '';
 

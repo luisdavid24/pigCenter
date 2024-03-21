@@ -1,4 +1,5 @@
 cargerAlimentacion();
+let alimentacionGlobal=null;
 
 
 
@@ -42,7 +43,7 @@ async function cargerAlimentacion() {
         
 
             let btnEliminar = '<a class="btn btn-danger btn-circle btn-sm" onclick="eliminarCliente(' + alimento.id + ')"  >Eliminar<i class="fas fa-trash"></i></a>';
-            let bntEditar = '<a class="btn btn-primary" type="button" data-toggle="modal" data-target="#editarPorcino">Editar<i class="fas fa-trash"></i></a>';
+            let bntEditar = '<a class="btn btn-primary" type="button" data-toggle="modal" data-target="#clienteModalEditar" onclick="editarCliente(' + alimento.id + ')"  >Editar<i class="fas fa-trash"></i></a>';
             
             
             let clienteRow='<tr><td>'+alimento.id+'</td><td>' + alimento.description + '</td><td>'+alimento.dose + '</td><td>' +porcino + '</td><td>'
@@ -196,7 +197,7 @@ async function eliminarCliente(id) {
 
 async function editarCliente(id){
     try {
-        const request = await fetch('http://localhost:8080/feeding', {
+        const request = await fetch('http://localhost:8080/feeding/'+id, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
@@ -205,15 +206,63 @@ async function editarCliente(id){
                
             });
         let data = await request.json();
+        alimentacionGlobal=data;
         console.log(data);
-        data=quitarAdress(data);
-        for (let elemento of data) {
-            if(elemento.id==id){
-                clienteEditGlobal=elemento;
-                break;
+
+        const requestPorcino = await fetch('http://localhost:8080/porcino', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+           
+        });
+        let dataPorcino = await requestPorcino.json();
+
+        const request2 = await fetch('http://localhost:8080/feeding', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+           
+        });
+        let dataUpdate = await request2.json();
+       
+        
+        let listaPorcino=[];
+        for (let element of dataUpdate) {
+            if(element.porcine!=null){
+                listaPorcino.push(element.porcine);
             }
         }
-        console.log(clienteEditGlobal);
+
+        let selectElementAlimentacion = document.getElementById('opcionesAlimentacionEditar');
+        selectElementAlimentacion.innerHTML = '';
+        
+       
+        for (let porcino of dataPorcino) {
+            let Bandera=true;
+            for (let porcinoListo of listaPorcino) {
+                if(porcino.id==porcinoListo.listaPorcino){
+                    Bandera=false;
+                    break
+                }
+            }
+            if(Bandera){
+                let optionElement = document.createElement('option');
+                optionElement.value = porcino.id; 
+                optionElement.textContent = porcino.id+porcino.race ;
+                selectElementAlimentacion.appendChild(optionElement);
+
+            }
+            
+        }
+        let optionElement = document.createElement('option');
+        optionElement.value =null; 
+        optionElement.textContent = "Null" ;
+        selectElementAlimentacion.appendChild(optionElement);
+      
         
 
     } catch (error) {
@@ -225,26 +274,55 @@ async function editarCliente(id){
 }
 
 async function GuardarEditarPorcino() {
-    let name = document.getElementById('textNombreClienteEditar').value;
-    let lastName = document.getElementById('textApellidosClienteEditar').value;
-    let adress = document.getElementById('textDireccionClienteEditar').value;
+    let description= document.getElementById('textDescripcionEdit').value;
+    let dose = document.getElementById('textDoseEdit').value;
+    let porcineID = document.getElementById('opcionesAlimentacionEditar').value;
     
     
-    
-    if(lastName){
-        clienteEditGlobal.lastName=lastName;
+    const requestPorcino = await fetch('http://localhost:8080/porcino', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+       
+    });
+    let dataPorcino = await requestPorcino.json();
+   
+    if(description){
+        alimentacionGlobal.description=description;
     }
    
-    if(name){
-        clienteEditGlobal.name=name;
+    if(dose){
+        alimentacionGlobal.dose=dose;
     }
     
-    if(adress){
-        clienteEditGlobal.adress=adress;
+   
+
+    if(porcineID){
+        for (let element of dataPorcino) {
+            if(porcineID==element.id){
+                
+                //delete client.address;
+                alimentacionGlobal.porcine=element;
+                break;
+            }
+        }
         
     }
+    console.log(alimentacionGlobal);
     
-    console.log(clienteEditGlobal);
+    const request = await fetch('http://localhost:8080/feeding/'+alimentacionGlobal.id, {
+        method: 'PUT', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(alimentacionGlobal)
+    });
+    cargerAlimentacion();
+    
+    
     
     
 }
