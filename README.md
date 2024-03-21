@@ -68,11 +68,11 @@ El desarrollo del proyecto está consolidado en la rama 'devBack'. Para utilizar
 ## Tecnologia
 Las tecnologías utilizadas en el proyecto fueron:
 
--Spring Boot
--Bootstrap
--Chart.js
--HTML
--CSS
+- Spring Boot
+- Bootstrap
+- Chart.js
+- HTML
+- CSS
 
 ## Diagrama
 Si desea observar el diagrama de clases del proyecto, da click al siguiente link:
