@@ -19,7 +19,8 @@ Breve descripción del proyecto.
 
 1. La base de datos: Debes tener un postgrest y debes crear una db con el nombre pigCenter, la creacion de las tablas lo realizara Spring boot
 2. Deber de correr el siguiente script para la db:
-   INSERT INTO public.client(
+ ```sql
+INSERT INTO public.client(
 	adress, last_name, name, phone)
 	VALUES ('Calle Primavera 123, Ciudad Esperanza, Estado del Sol, Mexico.','Lopez', 'David','3504792685');
 INSERT INTO public.client(
@@ -55,5 +56,6 @@ INSERT INTO public.feeding(
 INSERT INTO public.feeding(
 	dose, description)
 	VALUES (8, 'Alimentos procesados');
+```
 
 
