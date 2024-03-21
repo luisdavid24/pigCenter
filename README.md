@@ -85,4 +85,6 @@ Si tienes alguna pregunta, comentario o sugerencia sobre el proyecto, no dudes e
 
 - Nombre: Luis David
 - Correo Electrónico: luis_lopez82201@elpoli.edu.co
+- - Nombre: Miguel bañol
+- Correo Electrónico: miguel_banol82201@elpoli.edu.co
 
