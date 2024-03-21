@@ -77,9 +77,7 @@ Las tecnologías utilizadas en el proyecto fueron:
 ## Diagrama
 Si desea observar el diagrama de clases del proyecto, da click al siguiente link:
 https://drive.google.com/file/d/1c9ihgeT8BkEReCVcwuCx47P5MyLD7zlT/view?usp=drive_link
-  
-- Nombre: Miguel bañol
-- Correo Electrónico: miguel_banol82201@elpoli.edu.co
+
 
 ## Contacto
 
