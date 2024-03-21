@@ -17,8 +17,12 @@ La Granja S.A, un centro porcino, necesitaba una solución web que implementara 
 
 ## Configuración:
 
-1. La base de datos: Debes tener un postgrest y debes crear una db con el nombre pigCenter, la creacion de las tablas lo realizara Spring boot
-2. Deber de correr el siguiente script para la db:
+1. Configuración de la base de datos:
+   - Antes de comenzar, asegúrate de tener PostgreSQL instalado en tu máquina.
+   - Debes crear una base de datos con el nombre 'pigCenter'. La creación de las tablas será realizada por Spring Boot durante el proceso de ejecución.
+
+2. Ejecución del script de la base de datos:
+
  ```sql
 INSERT INTO public.client(
 	adress, last_name, name, phone)
