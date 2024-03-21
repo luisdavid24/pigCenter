@@ -5,12 +5,14 @@ Miguel Bañol
 
 Breve descripción del proyecto.
 
-La Granja S.A. es un centro porcino requeria una solución web que utilice el Modelo por capas (Modelo Vista Controlador). Este proyecto fue la respuesta a esta problematica planteada por Granja S.A.
+
+La Granja S.A, un centro porcino, necesitaba una solución web que implementara el patrón de diseño Modelo-Vista-Controlador (MVC). Este proyecto surgió como respuesta a los desafíos planteados por La Granja S.A.
 
 ## Tabla de Contenidos
 
 - [Configuración](#configuración)
 - [Uso](#uso)
+- [Tecnologia](#Tecnologia)
 - [Contacto](#contacto)
 
 ## Configuración:
@@ -56,9 +58,16 @@ INSERT INTO public.feeding(
 	VALUES (8, 'Alimentos procesados');
 ```
 ## Uso:
-Al momento de usar el proyecto debes primer correr el backend (hecho en spring boot) y luego correr el archivo de sql para tener la base de datos, para luego por medio de live server correr el fronted.
+El desarrollo del proyecto está consolidado en la rama 'devBack'. Para utilizar el proyecto, primero debes ejecutar el backend (implementado en Spring Boot) y luego ejecutar el archivo SQL para configurar la base de datos. Después, puedes iniciar el frontend utilizando un servidor en vivo (live server).
 
+## Tecnologia
+Las tecnologías utilizadas en el proyecto fueron:
 
+-Spring Boot
+-Bootstrap
+-Chart.js
+-HTML
+-CSS
 ## Contacto
 
 Si tienes alguna pregunta, comentario o sugerencia sobre el proyecto, no dudes en ponerte con nosotros.
