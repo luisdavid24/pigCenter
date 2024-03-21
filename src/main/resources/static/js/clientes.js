@@ -181,7 +181,7 @@ async function GuardarEditarPorcino() {
 
 
 async function generarReportePorcino() {
-
+    
    
 
     try {
