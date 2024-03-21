@@ -7,15 +7,11 @@ Breve descripción del proyecto.
 
 ## Tabla de Contenidos
 
-- [Instalación](#instalación)
-- [Uso](#uso)
 - [Configuración](#configuración)
-- [Contribución](#contribución)
-- [Créditos](#créditos)
-- [Licencia](#licencia)
+- [Uso](#uso)
 - [Contacto](#contacto)
 
-## Configuraciones:
+## Configuración:
 
 1. La base de datos: Debes tener un postgrest y debes crear una db con el nombre pigCenter, la creacion de las tablas lo realizara Spring boot
 2. Deber de correr el siguiente script para la db:
@@ -57,5 +53,19 @@ INSERT INTO public.feeding(
 	dose, description)
 	VALUES (8, 'Alimentos procesados');
 ```
+## Uso:
+Al momento de usar el proyecto debes primer correr el backend (hecho en spring boot) y luego correr el archivo de sql para tener la base de datos, para luego por medio de live server correr el fronted.
+
+
+## Contacto
+
+Si tienes alguna pregunta, comentario o sugerencia sobre el proyecto, no dudes en ponerte con nosotros.
+
+- Nombre: [Luis David]
+- Correo Electrónico: [luis_lopez82201@elpoli.edu.co]
+
+  
+- Nombre: [Miguel bañol]
+- Correo Electrónico: [miguel_banol82201@elpoli.edu.co]
 
 
