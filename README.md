@@ -1,4 +1,7 @@
-# Nombre del Proyecto
+# Pig Center
+Por 
+Luis David 
+Miguel Bañol
 
 Breve descripción del proyecto.
 
