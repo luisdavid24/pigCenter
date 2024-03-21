@@ -5,6 +5,8 @@ Miguel Bañol
 
 Breve descripción del proyecto.
 
+La Granja S.A. es un centro porcino requeria una solución web que utilice el Modelo por capas (Modelo Vista Controlador). Este proyecto fue la respuesta a esta problematica planteada por Granja S.A.
+
 ## Tabla de Contenidos
 
 - [Configuración](#configuración)
@@ -61,11 +63,11 @@ Al momento de usar el proyecto debes primer correr el backend (hecho en spring b
 
 Si tienes alguna pregunta, comentario o sugerencia sobre el proyecto, no dudes en ponerte con nosotros.
 
-- Nombre: [Luis David]
-- Correo Electrónico: [luis_lopez82201@elpoli.edu.co]
+- Nombre: Luis David
+- Correo Electrónico: luis_lopez82201@elpoli.edu.co
 
   
-- Nombre: [Miguel bañol]
-- Correo Electrónico: [miguel_banol82201@elpoli.edu.co]
+- Nombre: Miguel bañol
+- Correo Electrónico: miguel_banol82201@elpoli.edu.co
 
 
