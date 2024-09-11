@@ -81,7 +81,7 @@ https://drive.google.com/file/d/1c9ihgeT8BkEReCVcwuCx47P5MyLD7zlT/view?usp=drive
 
 ## Contacto
 
-Si tienes alguna pregunta, comentario o sugerencia sobre el proyecto, no dudes en ponerte con nosotros.
+Si tienes alguna pregunta, comentario o sugerencia sobre el proyecto, no dudes en ponerte en contacto con nosotros.
 
 - Nombre: Luis David
 - Correo Electrónico: luis_lopez82201@elpoli.edu.co
